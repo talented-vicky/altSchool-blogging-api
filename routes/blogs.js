@@ -3,21 +3,22 @@ const blogRouter = express.Router()
 
 const blogController = require('../controllers/blog')
 
-// fetching a blog
+// fetching all blogs
 blogRouter.get('/', blogController.getBlogs)
 
+// fetching a particular blog
+blogRouter.get('/single-blog/:blogID', blogController.getBlog)
+
+// displaying blog creation page
+blogRouter.get('/create-blog', blogController.getCreateBlog)
+
 // creating a blog
-blogRouter.post('/', (req, res) => {
-    req.send('successfully created a new book')
-})
+blogRouter.post('/blog', blogController.createBlog)
 
 // updating a blog
-blogRouter.post('/:id', (req, res) => {
-    const id = req.params.id
-    req.send()
-})
+blogRouter.post('/update/:id', blogController.updateBlog)
 
 // deleting a blog
-blogRouter.post('/:id', blogController.deleteBlogs)
+blogRouter.post('/delete/:id', blogController.deleteBlog)
 
 module.exports = blogRouter;

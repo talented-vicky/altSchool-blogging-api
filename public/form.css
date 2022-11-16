@@ -1,0 +1,28 @@
+.form {
+    width: 30rem;
+    margin: 0 auto;
+}
+.form__container {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+}
+.form__container label {
+    margin-bottom: .4rem;
+}
+.form__container input,
+.form__container textarea,
+.form__container select {
+    border: 1px solid #32e3f0;
+    font: inherit;
+    border-radius: 2px;
+    padding: .6rem;
+}
+
+.form__container input:focus,
+.form__container textarea:focus,
+.form__container select:focus {
+    outline-color: #21d5e2;
+}
+
+/* remember functionality first, styles later */

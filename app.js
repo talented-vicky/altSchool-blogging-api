@@ -15,17 +15,19 @@ const app = express()
 mongoDBConnect();
 
 // body parser and css static access
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')))
 
 // using my ejs templating engine
-app.set('view enjine', 'ejs')
+app.set('view engine', 'ejs')
 app.set('views', 'views')   
 
 // using my routes with express
 app.use(blogRoutes)
-app.use(authorRoutes)
+// app.use(authorRoutes)
 
 app.listen(PORT, () => {
     console.log('server started')
 })
+
+

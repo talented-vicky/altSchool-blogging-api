@@ -1,0 +1,32 @@
+<%- include('../includes/head.ejs')%>
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs')%>
+    
+    <main>
+        <% if(blogs.length > 0) { %>
+            <div class="grid">
+                <% blogs.forEach(blog => { %>
+                    <article class="card blog-item">
+                        <header class="card__header">
+                            <h1 class="blog__title"><%= blog.title %></h1>
+                        </header>
+                        <div class="card__content">
+                            <h2 class="blog__author">By: <%= blog.author %></h2>
+                            <p class="blog__year">Published on: <%= blog.year %></p>
+                        </div>
+                        <div class="card__actions">
+                            <a href="/single-blog/<%= blog.id %>" class="btn"> 
+                                See Blog 
+                            </a>
+                        </div>
+                    </article>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <h1>No  Blogs to display yet</h1>
+        <% } %>
+    </main>
+
+<%- include('../includes/tail.ejs')%>
