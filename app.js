@@ -1,9 +1,12 @@
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
 
 const { mongoDBConnect } = require('./db')
+
 const authorRoutes = require('./routes/authors')
+const authRoutes = require('./routes/auth')
 const blogRoutes = require('./routes/blogs')
 // registering my routes to app
 
@@ -24,7 +27,10 @@ app.set('views', 'views')
 
 // using my routes with express
 app.use(blogRoutes)
+app.use(authRoutes)
 // app.use(authorRoutes)
+
+app.use(cookieParser())
 
 app.listen(PORT, () => {
     console.log('server started')

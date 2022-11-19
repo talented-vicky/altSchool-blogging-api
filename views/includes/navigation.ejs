@@ -3,6 +3,12 @@
         <ul class="main-header__item-list">
             <li class="main-header__item"><a class="<%= path === '/' ? 'active' : '' %>" href="/">All Blogs</a></li>
             <li class="main-header__item"><a class="<%= path === '/create-blog' ? 'active' : '' %>" href="/create-blog">Create Blog</a></li>
+            
+            <li class="main-header__item"><a class="<%= path === '/admin' ? 'active' : '' %>" href="/admin/blogs">Admin Blogs</a></li>
+            <li class="main-header__item"><a class="<%= path === '/admin' ? 'active' : '' %>" href="/admin/create-blog">Admin Create Blog</a></li>
+
+            <li class="main-header__item"><a class="<%= path === '/user/sign-in' ? 'active' : '' %>" href="/sign-in">Log In</a></li>
+            <li class="main-header__item"><a class="<%= path === '/user/sign-up' ? 'active' : '' %>" href="/sign-up">Sign Up</a></li>
         </ul>
     </nav>
 </header>

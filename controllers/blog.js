@@ -4,7 +4,7 @@ exports.getBlogs = ((req, res, next) => {
     // this is working fine NOW
     BlogModel.find()
         .then(blog => {
-            res.render('blog/blogs', {
+            res.render('user/blogs', {
                 blogs: blog,
                 pageTitle: 'All Blogs written',
                 path: '/'
@@ -17,7 +17,7 @@ exports.getBlog = ((req, res, next) => {
     // fetched the above from the route file
     BlogModel.findById(id)
         .then(blog => {
-            res.render('blog/detail-blog', {
+            res.render('user/detail-blog', {
                 pageTitle: 'Single Blog',
                 // the path would make it seem as if we're in the general blog page
                 path: '/',
@@ -28,7 +28,7 @@ exports.getBlog = ((req, res, next) => {
 
 exports.getCreateBlog = ((req, res, next) => {
     // this is working fine NOW
-    res.render('blog/edit-blog', {
+    res.render('user/edit-blog', {
         pageTitle: 'Create New Blog',
         path: '/create-blog',
         editMode: false

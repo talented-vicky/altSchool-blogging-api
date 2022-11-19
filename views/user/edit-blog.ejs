@@ -1,0 +1,55 @@
+<%- include('../includes/head.ejs')%>
+    <link rel="stylesheet" href="/form.css">
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs')%>
+    
+    <main>
+        <form class="form" action="/<% if(editMode) { %>edit-blog<% } else { %>blog<% } %>" method="post">
+            <div class="form__container">
+                <label for="tit">Title</label>
+                <input type="text" name="title" id="tit" 
+                    value="<% if(editMode) { %><%=blog.title%><% } %>"
+                >
+            </div>
+
+            <div class="form__container">
+                <label for="auth">Author</label>
+                <input type="text" name="author" id="auth"
+                    value="<% if(editMode) { %><%=blog.author%><% } %>"
+                >
+            </div>
+
+            <div class="form__container">
+                <label for="year">Year</label>
+                <input type="date" name="year" id="year"
+                    value="<% if(editMode) { %><%=blog.year%><% } %>"
+                >
+            </div>
+
+            <div class="form__container">
+                <label for="state" class="state">Select State</label>
+                <select name="blogState" class="form__container" id="state">
+                    <option value="" disabled>--Please select a state</option>
+                    <option value="<% if(editMode) { %><%=blog.state%> <%} else { %>Draft<% } %>">Draft</option>
+                    <option value="<% if(editMode) { %><%=blog.state%> <%} else { %>Published<% } %>">Published</option>
+                </select>
+            </div>
+            
+            <div class="form__container">
+                <label for="des">New Blog</label>
+                <textarea name="blogContent" id="des" cols="30" rows="10"><% if(editMode) { %><%=prod.description%><% } %></textarea>
+            </div>
+
+            <% if(editMode) { %>
+                <input type="hidden" name="productId" value="<%= blog._id %>">
+            <% } %>
+            <button class="btn" type="submit"> <% if(editMode) { %>Edit Blog<% } else { %>Create Blog<% } %> </button>
+        </form>
+    </main>
+
+    <!-- remove the ability to edit from here and leave
+    it in the edit-blog.ejs file in admin -->
+
+<%- include('../includes/tail.ejs')%>
