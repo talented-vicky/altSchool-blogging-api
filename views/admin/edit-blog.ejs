@@ -10,21 +10,21 @@
             <div class="form__container">
                 <label for="tit">Title</label>
                 <input type="text" name="title" id="tit" 
-                    value="<% if(editMode) { %><%=blog.title%><% } %>"
+                    value="<% if(editMode) { %><%=authorBlog.title%><% } %>"
                 >
             </div>
 
             <div class="form__container">
                 <label for="auth">Author</label>
                 <input type="text" name="author" id="auth"
-                    value="<% if(editMode) { %><%=blog.author%><% } %>"
+                    value="<% if(editMode) { %><%=authorBlog.author%><% } %>"
                 >
             </div>
 
             <div class="form__container">
                 <label for="year">Year</label>
                 <input type="date" name="year" id="year"
-                    value="<% if(editMode) { %><%=blog.year%><% } %>"
+                    value="<% if(editMode) { %><%=authorBlog.year%><% } %>"
                 >
             </div>
 
@@ -32,8 +32,8 @@
                 <label for="state" class="state">Select State</label>
                 <select name="blogState" class="form__container" id="state">
                     <option value="" disabled>--Please select a state</option>
-                    <option value="<% if(editMode) { %><%=blog.state%> <%} else { %>Draft<% } %>">Draft</option>
-                    <option value="<% if(editMode) { %><%=blog.state%> <%} else { %>Published<% } %>">Published</option>
+                    <option value="<% if(editMode) { %><%=authorBlog.state%> <%} else { %>Draft<% } %>">Draft</option>
+                    <option value="<% if(editMode) { %><%=authorBlog.state%> <%} else { %>Published<% } %>">Published</option>
                 </select>
             </div>
             
@@ -43,7 +43,7 @@
             </div>
 
             <% if(editMode) { %>
-                <input type="hidden" name="productId" value="<%= blog._id %>">
+                <input type="hidden" name="productId" value="<%= authorBlog._id %>">
             <% } %>
             <button class="btn" type="submit"> <% if(editMode) { %>Edit Blog<% } else { %>Create Blog<% } %> </button>
         </form>

@@ -12,7 +12,7 @@ exports.getSignIn = (req, res, next) => {
 
 exports.postSignIn = async (req, res, next) => {
     passport.authenticate(
-        'signin',
+        'login',
         async (err, author, info) => {
             try {
                 if(err) return next(err)
@@ -54,15 +54,15 @@ exports.getSignUp = (re, res, next) => {
 
 exports.postSignUp = async (req, res, next) => {
     passport.authenticate(
-        'signup', 
-        {session: false},
-        res.json({
-            message: 'Successfully signed up',
-            // user: {
-            //     email: email,
-            //     password: pwd
-            // }
-        }),
-        res.redirect('/sign-up')
+        // 'signup', 
+        // {session: false},
+        // res.json({
+        //     message: 'Successfully signed up',
+        //     user: {
+        //         email: email,
+        //         password: pwd
+        //     }
+        // }),
+        res.redirect('/')
     )
 }
